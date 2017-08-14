@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Timer Procedure</title>
+</head>
+<body>
+    <form name="timer">
+        <input type="button" value="Start" onclick="startfunc()"><br>
+        <input type="text" name="moji" size="30" value="">
+    </form>
+    <form name="timecount">
+        <input type="button" value="Time count" onclick="starttime()"><br>
+        <input type="text" name="time" size="5" value="">
+    </form>
+    <script>
+        var count = 100;
+        function countdown(){
+            document.timecount.time.value = count;
+            count--;
+        }
+
+        function starttime(){
+            setInterval("countdown()", 1000);
+        }
+
+        function hyoji(){
+            var str = "display strings one by one.";
+            var cnt = document.timer.moji.value.length;
+            if(cnt < str.length){
+                document.timer.moji.value = str.substr(0, cnt+1);
+            }else{
+                document.timer.moji.value = "";
+            }
+        }
+
+        function startfunc(){
+            setInterval("hyoji()", 1000);
+        }
+
+
+
+    </script>
+</body>
+</html>
