@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>もっとみる</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    $(function(){
+        $('.content:not(.content:first-of-type)').css('display', 'none');
+        $('.more').nextAll('.more').css('display', 'none');
+        $('.more').on('click', function(){
+            $(this).css('display', 'none');
+            $(this).next('.content').slideDown('fast');
+            $(this).nextAll('.more:first').css('display', 'block');
+        });
+    });
+</script>
+<body>
+<div class="content">
+    <ul>
+        <li>トマト</li>
+        <li>キャベツ</li>
+        <li>もやし</li>
+    </ul>
+</div>
+<div class="more">もっと見る</div>
+
+<div class="content">
+    <ul>
+        <li>りんご</li>
+        <li>なし</li>
+        <li>みかん</li>
+    </ul>
+    <!-- / .content -->
+</div>
+<div class="more">もっと見る</div>
+
+<div class="content">
+    <ul>
+        <li>さんま</li>
+        <li>さば</li>
+        <li>あじ</li>
+    </ul>
+    <!-- / .content -->
+</div>
+<div class="more">もっと見る</div>
+
+<div class="content">
+    <ul>
+        <li>うし</li>
+        <li>とり</li>
+        <li>ぶた</li>
+    </ul>
+    <!-- / .content -->
+</div>
+</body>
+</html>
