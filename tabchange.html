@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>tabchange</title>
+    <style>
+        .tab{
+            overflow: hidden;
+        }
+        .tab li{
+            background: #228B22;
+            padding: 10px 25px;
+            float: left;
+            margin-right: 1px;
+            height: 50px;
+        }
+        .tab li .select{
+            background: #9ACD32;
+        }
+        .content li{
+            background: #9ACD32;
+            padding: 20px;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $('.tab li').click(function(){
+                var index = $('.tab li').index(this);
+                $('.content li').css('display', 'none');
+                $('.content li').eq(index).css('display', 'block');
+                $('.tab li').removeClass('select');
+                $('this').addClass('select');
+            });
+        });
+    </script>
+    <script>
+        $(function(){
+            var result1 = '';
+            result1 += '<div class="content1">';
+            result1 += 'Apple';
+            result1 += '</div>';
+            $('#content1').html(result1);
+
+            var result2 = '';
+            result2 += '<div class="content2">';
+            result2 += 'Orange';
+            result2 += '</div>';
+            $('#content2').html(result2);
+
+            var result3 = '';
+            result3 += '<div class="content3">';
+            result3 += 'Spring';
+            result3 += '</div>';
+            $('#content3').html(result3);
+        });
+    </script>
+</head>
+<body>
+<ul class="tab">
+    <li class="select">Favorite fruit</li>
+    <li>Favorite Color</li>
+    <li>Favorite Season</li>
+</ul>
+
+<ul class="content">
+    <li class=" " id="content1"></li>
+    <li class="hide" id="content2"></li>
+    <li class="hide" id="content3"></li>
+</ul>
+</body>
+</html>
